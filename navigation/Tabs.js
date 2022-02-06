@@ -6,6 +6,7 @@ import Search from "../screens/Search";
 import { View, Text, useColorScheme } from "react-native";
 import { BLACK_COLOR, DARK_GREY, LIGHT_GREY, YELLOW_COLOR } from "../color";
 import { Ionicons } from "@expo/vector-icons";
+import Stack from "./Stack";
 const Tab = createBottomTabNavigator();
 
 const Tabs = () => {
@@ -15,6 +16,8 @@ const Tabs = () => {
     <Tab.Navigator
       initialRouteName="돼지"
       screenOptions={{
+        headerTitleAlign: "center",
+        // headerShown: false,
         tabBarLabelPosition: "beside-icon",
         headerRight: () => (
           <View>
