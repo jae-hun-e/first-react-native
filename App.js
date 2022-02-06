@@ -1,24 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import AppLoading from "expo-app-loading";
+import * as Font from "expo-font";
+import { Ionicons } from "@expo/vector-icons";
+import { useAssets } from "expo-asset";
+import { NavigationContainer } from "@react-navigation/native";
+import Tabs from "./navigation/Tabs";
 
 export default function App() {
-  const [ready, setReady] = useState(false);
-  // ! 1st
-  const startAsync = () => async () => {
-    await new Promise((resolve) => setTimeout(resolve, 5000));
-  };
-  // ! 2nd
-  const onFinish = () => setReady(true);
+  const [ready] = useAssets([require("./my_face.jpg")]);
+  const [loaded] = Font.useFonts(Ionicons.font);
 
-  if (!ready) {
-    return (
-      <AppLoading
-        startAsync={startAsync}
-        onFinish={onFinish}
-        onError={console.error}
-      />
-    );
+  if (!ready || !loaded) {
+    return <AppLoading />;
   }
   // !3rd
-  return null;
+  return (
+    <NavigationContainer>
+      <Tabs />
+    </NavigationContainer>
+  );
 }
