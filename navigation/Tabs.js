@@ -4,9 +4,13 @@ import Movies from "../screens/Movies";
 import Tv from "../screens/Tv";
 import Search from "../screens/Search";
 import { View, Text, useColorScheme } from "react-native";
-import { BLACK_COLOR, DARK_GREY, LIGHT_GREY, YELLOW_COLOR } from "../color";
+import {
+  BLACK_COLOR,
+  DARK_GREY,
+  LIGHT_GREY,
+  YELLOW_COLOR,
+} from "../theme/color";
 import { Ionicons } from "@expo/vector-icons";
-import Stack from "./Stack";
 const Tab = createBottomTabNavigator();
 
 const Tabs = () => {
@@ -47,7 +51,7 @@ const Tabs = () => {
         component={Movies}
         options={{
           tabBarIcon: ({ focused, color, size }) => {
-            console.log("movie :", focused, color, size);
+            // console.log("movie :", focused, color, size);
             return <Ionicons name="ios-film" size={size} color={color} />;
           },
         }}
@@ -57,7 +61,7 @@ const Tabs = () => {
         component={Tv}
         options={{
           tabBarIcon: ({ focused, color, size }) => {
-            console.log("tv :", focused, color, size);
+            // console.log("tv :", focused, color, size);
             return <Ionicons name="ios-tv" size={size} color={color} />;
           },
         }}
@@ -68,7 +72,7 @@ const Tabs = () => {
         options={{
           tabBarBadge: 5,
           tabBarIcon: ({ focused, color, size }) => {
-            console.log("search :", focused, color, size);
+            // console.log("search :", focused, color, size);
             return (
               <Ionicons
                 name={focused ? "ios-search-circle-outline" : "ios-search"}
